@@ -18,9 +18,9 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 	
+	@JsonBackReference
 	@ManyToOne
     @JoinColumn(name = "doctor_id")
-	@JsonIgnoreProperties("patients")
     private Doctor doctor;
 
 	@NotBlank

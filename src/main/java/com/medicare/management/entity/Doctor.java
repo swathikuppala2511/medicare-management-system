@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -21,7 +22,7 @@ public class Doctor {
     private Integer id;
 	
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties
+	@JsonManagedReference
     private List<Patient> patients;
 
 	@NotBlank(message = "Doctor name is required")
